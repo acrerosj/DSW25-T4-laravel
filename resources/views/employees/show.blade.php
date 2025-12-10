@@ -12,10 +12,17 @@
     <h2>{{ $employee->name }}</h2>
     <h3>{{ $employee->salary }}€</h3>
     <p>
-        <form action="/employees/{{ $employee->id }}" method="post">
+        <a href="{{ Route('employees.edit', compact('employee')) }}">Editar empleado</a>
+    </p>
+    <p>
+        <form action="{{ Route('employees.destroy', ['employee' => $employee]) }}" method="post">
             @csrf
+            @method('delete')
             <input type="submit" value="Eliminar">
         </form>
+    </p>
+    <p>
+        <a href="{{ Route('employees.index') }}">Listado de empleados</a>
     </p>
 </body>
 </html>

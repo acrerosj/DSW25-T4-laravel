@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Lista de empleados</h1>
+    <p><a href="{{ Route('employees.create') }}">Crear Empleado</a></p>
     <table>
         <thead>
             <tr>
@@ -20,7 +21,7 @@
             @foreach ($employees as $employee)
             <tr>
                 <td>{{ $employee->id }}</td>
-                <td>{{ $employee->name }}</td>
+                <td><a href="{{ Route('employees.show', ['employee' => $employee]) }}">{{ $employee->name }}</a></td>
                 <td>{{ $employee->salary }}</td>
             </tr>
             @endforeach

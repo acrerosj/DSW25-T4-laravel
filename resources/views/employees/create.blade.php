@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="{{ Route('employees.store') }}" method="post">
+        @csrf
         <p>
             <input type="text" name="name" placeholder="Nombre de usuario...">
         </p>

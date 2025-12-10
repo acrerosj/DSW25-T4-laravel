@@ -23,8 +23,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return "estoy en create";
-        //return view('employees.create');
+        // return "estoy en create";
+        return view('employees.create');
     }
 
     /**
@@ -32,7 +32,8 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Employee::create($request->all());
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -46,17 +47,18 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Employee $employee)
     {
-        //
+        return view('employees.edit', compact('employee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Employee $employee)
     {
-        //
+        $employee->update($request->all());
+        return redirect()->route('employees.index');
     }
 
     /**
