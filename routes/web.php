@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +33,4 @@ Route::get('/users/{id}', [UserController::class, 'getId']);
 // Route::put('/employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
 
 Route::resource('employees', EmployeeController::class);
+Route::resource('tasks', TaskController::class);
